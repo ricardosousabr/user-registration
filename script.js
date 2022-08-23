@@ -37,9 +37,37 @@ function save() {
   }
 }
 
+function generateList() {
+  const data = getUsers();
+
+  for (let i = 0; i < data.length; i++) {
+    const itemList = document.createElement('li');
+    const boxName = document.createElement('div');
+    const boxEmal = document.createElement('div');
+    const usernName = document.createElement('span');
+    const userEmal = document.createElement('span');
+
+    listUser.appendChild(itemList);
+    itemList.appendChild(boxName);
+    itemList.appendChild(boxEmal);
+    boxName.appendChild(usernName);
+    boxEmal.appendChild(userEmal);
+    usernName.innerHTML = data[i].name;
+    userEmal.innerHTML = data[i].email;
+  }
+}
+
+function clearList() {
+  listUser.innerHTML = '';
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   save();
+  clearList();
+  generateList();
 }
+
+generateList();
 
 form.addEventListener('submit', handleSubmit);
