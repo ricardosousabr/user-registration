@@ -37,6 +37,22 @@ function save() {
   }
 }
 
+function createbuttonRemove(index) {
+  const btnRemove = document.createElement('button');
+  const data = getUsers();
+
+  btnRemove.type = 'button';
+  btnRemove.innerHTML = 'Remover';
+  btnRemove.addEventListener('click', () => {
+    data.splice(index, 1);
+    localStorage.setItem('users', JSON.stringify(data));
+    clearList();
+    generateList();
+  });
+
+  return btnRemove;
+}
+
 function generateList() {
   const data = getUsers();
 
@@ -44,12 +60,15 @@ function generateList() {
     const itemList = document.createElement('li');
     const boxName = document.createElement('div');
     const boxEmal = document.createElement('div');
+    const boxButton = document.createElement('div');
     const usernName = document.createElement('span');
     const userEmal = document.createElement('span');
 
     listUser.appendChild(itemList);
     itemList.appendChild(boxName);
     itemList.appendChild(boxEmal);
+    itemList.appendChild(boxButton);
+    boxButton.appendChild(createbuttonRemove(i));
     boxName.appendChild(usernName);
     boxEmal.appendChild(userEmal);
     usernName.innerHTML = data[i].name;
