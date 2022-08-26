@@ -1,0 +1,11 @@
+.editing .edit-input  {
+  display: inline;
+}
+
+.editing .btn-remove {
+  display: none;
+}
+
+.edit-input {
+  display: none;
+}

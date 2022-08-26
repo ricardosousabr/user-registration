@@ -37,10 +37,24 @@ function save() {
   }
 }
 
-function createbuttonRemove(index) {
+function createButtonEdit() {
+  const btnEdit = document.createElement('button');
+
+  btnEdit.type = 'button';
+  btnEdit.innerHTML = 'Editar';
+  btnEdit.addEventListener('click', () => {
+    const user = btnEdit.closest('li');
+    user.classList.add('editing');
+  });
+
+  return btnEdit;
+}
+
+function createButtonRemove(index) {
   const btnRemove = document.createElement('button');
   const data = getUsers();
 
+  btnRemove.classList.add('btn-remove');
   btnRemove.type = 'button';
   btnRemove.innerHTML = 'Remover';
   btnRemove.addEventListener('click', () => {
@@ -59,16 +73,29 @@ function generateList() {
   for (let i = 0; i < data.length; i++) {
     const itemList = document.createElement('li');
     const boxName = document.createElement('div');
+    const boxInputName = document.createElement('div');
+    const boxInputEmail = document.createElement('div');
     const boxEmal = document.createElement('div');
     const boxButton = document.createElement('div');
+    const inputEditName = document.createElement('input');
+    const inputEditEmail = document.createElement('input');
     const usernName = document.createElement('span');
     const userEmal = document.createElement('span');
 
+    inputEditName.classList.add('edit-input');
+    inputEditEmail.classList.add('edit-input');
     listUser.appendChild(itemList);
     itemList.appendChild(boxName);
+    itemList.appendChild(boxInputName);
+    boxInputName.appendChild(inputEditName);
+    inputEditName.value = data[i].name;
+    inputEditEmail.value = data[i].email;
     itemList.appendChild(boxEmal);
+    itemList.appendChild(boxInputEmail);
+    boxInputEmail.appendChild(inputEditEmail);
     itemList.appendChild(boxButton);
-    boxButton.appendChild(createbuttonRemove(i));
+    boxButton.appendChild(createButtonRemove(i));
+    boxButton.appendChild(createButtonEdit());
     boxName.appendChild(usernName);
     boxEmal.appendChild(userEmal);
     usernName.innerHTML = data[i].name;
