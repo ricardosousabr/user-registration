@@ -22,7 +22,7 @@ function getUsers() {
 function save() {
   const inputNameValue = inputName.value.trim();
   const inputEmalValue = inputEmal.value.trim();
-  const users = getUsers();
+  const data = getUsers();
   const userData = {
     id: createId(),
     name: inputNameValue,
@@ -30,16 +30,43 @@ function save() {
   };
 
   if (inputNameValue && inputEmalValue != '') {
-    users.push(userData);
-    localStorage.setItem('users', JSON.stringify(users));
+    data.push(userData);
+    setUsers(data);
   } else {
     alert('Erro');
   }
 }
 
+function setUsers(users) {
+  localStorage.setItem('users', JSON.stringify(users));
+}
+
+function createButtonSave(index) {
+  const data = getUsers();
+  const btnSave = document.createElement('button');
+
+  btnSave.classList.add('btn-save');
+  btnSave.innerHTML = 'Salvar';
+  btnSave.addEventListener('click', () => {
+    const user = btnSave.closest('li');
+    const valueInputName = user.querySelector('.edit-input-name').value;
+    const valueInputEmail = user.querySelector('.edit-input-email').value;
+
+    user.classList.remove('editing');
+    data[index].name = valueInputName;
+    data[index].email = valueInputEmail;
+    setUsers(data);
+    clearList();
+    generateList();
+  });
+
+  return btnSave;
+}
+
 function createButtonEdit() {
   const btnEdit = document.createElement('button');
 
+  btnEdit.classList.add('btn-edit');
   btnEdit.type = 'button';
   btnEdit.innerHTML = 'Editar';
   btnEdit.addEventListener('click', () => {
@@ -59,7 +86,7 @@ function createButtonRemove(index) {
   btnRemove.innerHTML = 'Remover';
   btnRemove.addEventListener('click', () => {
     data.splice(index, 1);
-    localStorage.setItem('users', JSON.stringify(data));
+    setUsers(data);
     clearList();
     generateList();
   });
@@ -82,8 +109,8 @@ function generateList() {
     const usernName = document.createElement('span');
     const userEmal = document.createElement('span');
 
-    inputEditName.classList.add('edit-input');
-    inputEditEmail.classList.add('edit-input');
+    inputEditName.classList.add('edit-input-name');
+    inputEditEmail.classList.add('edit-input-email');
     listUser.appendChild(itemList);
     itemList.appendChild(boxName);
     itemList.appendChild(boxInputName);
@@ -94,8 +121,9 @@ function generateList() {
     itemList.appendChild(boxInputEmail);
     boxInputEmail.appendChild(inputEditEmail);
     itemList.appendChild(boxButton);
-    boxButton.appendChild(createButtonRemove(i));
+    boxButton.appendChild(createButtonSave(i));
     boxButton.appendChild(createButtonEdit());
+    boxButton.appendChild(createButtonRemove(i));
     boxName.appendChild(usernName);
     boxEmal.appendChild(userEmal);
     usernName.innerHTML = data[i].name;

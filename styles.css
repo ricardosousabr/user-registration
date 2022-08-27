@@ -1,11 +1,31 @@
-.editing .edit-input  {
+.editing .edit-input-name {
   display: inline;
+}
+
+.editing .edit-input-email {
+  display: inline;
+}
+
+.editing .btn-save {
+  display: inline;
+}
+
+.editing .btn-edit {
+  display: none;
 }
 
 .editing .btn-remove {
   display: none;
 }
 
-.edit-input {
+.btn-save {
+  display: none;
+}
+
+.edit-input-name {
+  display: none;
+}
+
+.edit-input-email {
   display: none;
 }
