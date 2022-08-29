@@ -135,11 +135,17 @@ function clearList() {
   listUser.innerHTML = '';
 }
 
+function clearInput() {
+  inputName.value = '';
+  inputEmal.value = '';
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   save();
   clearList();
   generateList();
+  clearInput();
 }
 
 generateList();
