@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@100;300;400;500&family=Ubuntu&display=swap');
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vh;
+  background-image: linear-gradient(to bottom right, #7D1D8B, #3EA4F0);
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.list {
+  padding: 0;
+}
+
+li {
+ list-style: none;
+}
+
 .editing .edit-input-name {
   display: inline;
 }
