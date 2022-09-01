@@ -81,6 +81,14 @@ li {
   display: none;
 }
 
+.editing .user-name {
+  display: none;
+}
+
+.editing .user-email {
+  display: none;
+}
+
 .btn-send {
   background: rgb(244, 18, 161);
   border: none;

@@ -109,6 +109,8 @@ function generateList() {
     const usernName = document.createElement('span');
     const userEmal = document.createElement('span');
 
+    usernName.classList.add('user-name');
+    userEmal.classList.add('user-email');
     inputEditName.classList.add('edit-input-name');
     inputEditEmail.classList.add('edit-input-email');
     listUser.appendChild(itemList);
