@@ -15,20 +15,58 @@ body {
   margin-left: 50px;
 }
 
+#userForm {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.input-name-user {
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  color: white;
+}
+
+.input-email-user {
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  color: white;
+}
+
 .list {
   padding: 0;
 }
 
 li {
  list-style: none;
+ margin-bottom: 30px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ height: 100px;
 }
 
 .editing .edit-input-name {
   display: inline;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  color: white;
 }
 
 .editing .edit-input-email {
   display: inline;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  color: white;
 }
 
 .editing .btn-save {
@@ -43,8 +81,43 @@ li {
   display: none;
 }
 
+.btn-send {
+  background: rgb(244, 18, 161);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  width: 80px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.btn-edit {
+  background: rgb(244, 18, 161);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  width: 80px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.btn-remove {
+  background: rgb(244, 18, 161);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  width: 80px;
+  height: 25px;
+}
+
 .btn-save {
   display: none;
+  background: rgb(244, 18, 161);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  width: 80px;
+  height: 25px;
 }
 
 .edit-input-name {
