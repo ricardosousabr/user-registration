@@ -77,6 +77,20 @@ function createButtonEdit() {
   return btnEdit;
 }
 
+function createButtonCancel() {
+  const btnCancel = document.createElement('button');
+
+  btnCancel.classList.add('btn-cancel');
+  btnCancel.innerHTML = 'Cancelar';
+  btnCancel.addEventListener('click', () => {
+    const user = btnCancel.closest('li');
+
+    user.classList.remove('editing');
+  });
+
+  return btnCancel;
+}
+
 function createButtonRemove(index) {
   const btnRemove = document.createElement('button');
   const data = getUsers();
@@ -125,6 +139,7 @@ function generateList() {
     itemList.appendChild(boxButton);
     boxButton.appendChild(createButtonSave(i));
     boxButton.appendChild(createButtonEdit());
+    boxButton.appendChild(createButtonCancel());
     boxButton.appendChild(createButtonRemove(i));
     boxName.appendChild(usernName);
     boxEmal.appendChild(userEmal);

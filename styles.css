@@ -69,6 +69,10 @@ li {
   color: white;
 }
 
+.editing .btn-cancel {
+  display: inline;
+}
+
 .editing .btn-save {
   display: inline;
 }
@@ -99,6 +103,17 @@ li {
   margin-right: 10px;
 }
 
+.btn-save {
+  display: none;
+  background: rgb(244, 18, 161);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  width: 80px;
+  height: 25px;
+  margin-right: 10px;
+}
+
 .btn-edit {
   background: rgb(244, 18, 161);
   border: none;
@@ -109,7 +124,8 @@ li {
   margin-right: 10px;
 }
 
-.btn-remove {
+.btn-cancel {
+  display: none;
   background: rgb(244, 18, 161);
   border: none;
   color: white;
@@ -118,8 +134,7 @@ li {
   height: 25px;
 }
 
-.btn-save {
-  display: none;
+.btn-remove {
   background: rgb(244, 18, 161);
   border: none;
   color: white;
